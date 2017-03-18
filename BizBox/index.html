@@ -1,0 +1,54 @@
+
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BizBox</title>
+  <link rel='stylesheet' href="styles/app.css" type="text/css"/>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="assets/angular.min.js"></script>
+  <script src="assets/angular-route.min.js"></script>
+</head>
+<body data-ng-app = "BizBoxApp">
+  <header>
+    <div id="upperNavigation">
+      <div id = "navigationContent">
+      <ul id = "navLinks" title="{{accesibilityTitle}}">
+        <li><i class="fa fa-search" style = "color:red"></i><input id= "search" type="text" name="Search" placeholder="Search"/></li>
+        <li><a href = "#landingPage" target="_self">Home</a></li>
+        <li><a href="#movies" target="_self">Movie</a></li>
+        <li><a href = "#series" target="_self">TV Series</a></li>
+        <li><a>About</a></li>
+        <li><a>Log In</a></li>
+        <li><a>Sign Up</a></li>
+      </ul>
+    </div>
+    </div>
+  </header>
+  <div id="mainContent">
+    <div id="mainSection" >
+      <div data-ng-view="" data-ng-cloak></div>
+    </div>
+  </div>
+
+
+<!--Modules-->
+<script src="BizBoxApp.js"></script>
+<script src="scripts/config.js"></script>
+
+<!-- CONTROLLERS -->
+<script src="scripts/controllers/contentController.js"></script>
+<script src="scripts/controllers/detailsPageController.js"></script>
+<script src="scripts/controllers/landingPageController.js"></script>
+<!-- / -->
+<!-- SERVICES -->
+<script src="scripts/services/showService.js"></script>
+<script src="scripts/services/transformerService.js"></script>
+
+<!-- FILTERS -->
+<script src="scripts/filters/unsafe.js"></script>
+<!-- DIRECTIVES -->
+<script src="scripts/directives/sidebarDirective.js"></script>
+<script src="scripts/directives/tileDirective.js"></script>
+</body>
+</html>

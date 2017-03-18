@@ -1,0 +1,34 @@
+<div class="loader" data-ng-if = loaded></div>
+<div data-ng-if = !loaded>
+<section  class = "backgroundImage" data-ng-style="{'background-image':'url({{details.backdrop_path}})',
+    'background-repeat': 'no-repeat', 'background-size': 'cover', 'left' : '0'}">
+<div class style="width : 1008px; margin: auto;z-index: 999;position: relative;">
+<div id="details">
+  <div class="poster">
+    <img  data-ng-src="https://image.tmdb.org/t/p//w342/{{details.poster_path}}">
+  </div>
+  <div id= "mainInfo">
+    <h1>{{details.name}}</h1>
+    <p><span data-ng-repeat= "genre in details.genres">{{genre.name}}{{$last ? "" :", "}}</span></p>
+    <p>{{details.overview}}</p>
+    </div>
+    </div>
+    <div class = "videos" >
+    <p>Available videos</p>
+    <div class = "videoTile" data-ng-repeat = "video in details.videos">
+    <div class ="videoLeft">
+
+    <iframe data-ng-src="{{video.key | unsafe}}" allowfullscreen></iframe>
+    </div>
+    <div class = "videoRight">
+      <p>{{video.name}}</p>
+
+    </div>
+    </div>
+
+</div>
+</div>
+</section>
+<section style="z-index:19999">
+  <p>Some Other content here<p></section>
+</div>

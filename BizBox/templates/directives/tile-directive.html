@@ -1,0 +1,8 @@
+<div class="card">
+  <img alt="{{popularShow.name}} Poster" title="{{popularShow.name}}" ng-src="https://image.tmdb.org/t/p/w780/{{popularShow.backdropPath}}">
+  <div class="container">
+    <h4><b>{{popularShow.name}}</b></h4>
+    <p><span class="fa fa-calendar"> </span> {{popularShow.releaseDate | date }} <span data-ng-if = "popularShow.originCountry">| Country:</span> {{popularShow.originCountry}}</p>
+  </div>
+  <a href = "#{{path}}/detailsPage:{{popularShow.id}}" class ="btn">Details</a>
+</div>

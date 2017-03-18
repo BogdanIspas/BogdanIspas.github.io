@@ -5,7 +5,7 @@
  */
 angular.module('BizBoxApp')
     .constant('API_KEY', '9f47c6cd6108fc998639cbaa64586c23')
-    .constant('BASE_URL', 'http://api.themoviedb.org/3')
+    .constant('BASE_URL', 'https://api.themoviedb.org/3')
     .factory('showService', dataService);
 
 function dataService($http, $log,API_KEY, BASE_URL) {

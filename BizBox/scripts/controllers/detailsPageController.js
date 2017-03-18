@@ -1,6 +1,6 @@
 angular.module ('BizBoxApp')
-    .controller ('detailsPageController', ['$scope', 'showService','$routeParams', '$rootScope', '$sce', 'transformerService', '$location',
-    function ($scope, showService, $routeParams, $sce, $rootScope, transformerService, $location){
+    .controller ('detailsPageController', ['$scope', 'restRequestsService','$routeParams', '$rootScope', '$sce', 'transformerService', '$location',
+    function ($scope, restRequestsService, $routeParams, $sce, $rootScope, transformerService, $location){
     var id = $routeParams.id.slice(1);
     var path = $location.path();
 var mainBackgroundUrl = 'https://image.tmdb.org/t/p/w1280/';
@@ -14,7 +14,7 @@ var mainBackgroundUrl = 'https://image.tmdb.org/t/p/w1280/';
     }
 
       var getTvShows = function () {
-      showService.get(id)
+      restRequestsService.get(id)
           .then (function (response){
             
               $scope.details  = {
@@ -31,7 +31,7 @@ var mainBackgroundUrl = 'https://image.tmdb.org/t/p/w1280/';
           } );
         }
     var getMovieDetails = function () {
-      showService.getMovieDetails(id)
+      restRequestsService.getMovieDetails(id)
           .then (function (response){
               $scope.details  = {
                  'name' : response.title,

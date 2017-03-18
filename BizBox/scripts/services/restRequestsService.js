@@ -6,7 +6,7 @@
 angular.module('BizBoxApp')
     .constant('API_KEY', '9f47c6cd6108fc998639cbaa64586c23')
     .constant('BASE_URL', 'https://api.themoviedb.org/3')
-    .factory('showService', dataService);
+    .factory('restRequestsService', dataService);
 
 function dataService($http, $log,API_KEY, BASE_URL) {
     var data = {
@@ -20,7 +20,7 @@ function dataService($http, $log,API_KEY, BASE_URL) {
     };
 
     function makeRequest(url, params) {
-      var requestUrl = BASE_URL + '/' + url + '?api_key=' + API_KEY;
+        var requestUrl = BASE_URL + '/' + url + '?api_key=' + API_KEY;
         angular.forEach(params, function(value, key){
             requestUrl = requestUrl + '&' + key + '=' + value;
         });
@@ -71,7 +71,7 @@ function dataService($http, $log,API_KEY, BASE_URL) {
     return data;
 
     function dataServiceError(errorResponse) {
-        $log.error('XHR Failed for ShowService');
+        $log.error('XHR Failed for restRequestsService');
         $log.error(errorResponse);
         return errorResponse;
     }

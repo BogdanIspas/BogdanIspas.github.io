@@ -1,5 +1,5 @@
 angular.module ('BizBoxApp').
-   controller ('headerController', ['showService'], function (showService){
+   controller ('headerController', ['restRequestsService'], function (restRequestsService){
 
 
     $scope.clickSearchIcon () {

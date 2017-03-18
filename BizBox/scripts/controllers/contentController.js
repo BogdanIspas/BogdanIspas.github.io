@@ -1,5 +1,5 @@
 angular.module ('BizBoxApp')
-.controller ('contentController', ['$scope', '$rootScope','showService', '$location', 'transformerService', function ($scope, $rootScope,showService, $location, transformerService){
+.controller ('contentController', ['$scope', '$rootScope','restRequestsService', '$location', 'transformerService', function ($scope, $rootScope,restRequestsService, $location, transformerService){
   $scope.loaded = true;
  var init = function () {
    $rootScope.path = $location.path().slice(1);
@@ -13,7 +13,7 @@ angular.module ('BizBoxApp')
 }
 
     getPopularTVSeries = function () {
-      showService.getPopular()
+      restRequestsService.getPopular()
       .then (function (response){
         $scope.popularShows = transformerService.tvSeriesTransformer(response);
         $scope.loaded = false;
@@ -24,7 +24,7 @@ angular.module ('BizBoxApp')
     }
 
     getPopularMovies = function () {
-      showService.getPopularMovies()
+      restRequestsService.getPopularMovies()
       .then (function (response){
         $scope.popularShows = transformerService.moviesTransformer(response);
         $scope.loaded = false;

@@ -1,5 +1,5 @@
 angular.module ('BizBoxApp')
-    .controller ('landingPageController', ['$scope', 'showService', function ($scope, showService){
+    .controller ('landingPageController', ['$scope', 'restRequestsService', function ($scope, restRequestsService){
 
 
   }]);

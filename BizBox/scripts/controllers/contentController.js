@@ -2,20 +2,24 @@ angular.module ('BizBoxApp')
 .controller ('contentController', ['$scope', '$rootScope','restRequestsService', '$location', 'transformerService', function ($scope, $rootScope,restRequestsService, $location, transformerService){
   $scope.loaded = true;
  var init = function () {
+   var page;
+   if (!page) {
+     page=1;
+   }
    $rootScope.path = $location.path().slice(1);
    if ($rootScope.path === 'series') {
-       getPopularTVSeries();
+       getPopularTVSeries(page);
    }
    else {
-      getPopularMovies();
+      getPopularMovies(page);
    }
 
 }
 
-    getPopularTVSeries = function () {
-      restRequestsService.getPopular()
+    getPopularTVSeries = function (page) {
+      restRequestsService.getPopular(page)
       .then (function (response){
-        $scope.popularShows = transformerService.tvSeriesTransformer(response);
+        $scope.popularShows = transformerService.tvSeriesTransformer(response.results);
         $scope.loaded = false;
         $scope.page = response.page;
         $scope.totalPages = response.total_pages;
@@ -23,10 +27,10 @@ angular.module ('BizBoxApp')
       });
     }
 
-    getPopularMovies = function () {
-      restRequestsService.getPopularMovies()
+    getPopularMovies = function (page) {
+      restRequestsService.getPopularMovies(page)
       .then (function (response){
-        $scope.popularShows = transformerService.moviesTransformer(response);
+        $scope.popularShows = transformerService.moviesTransformer(response.results);
         $scope.loaded = false;
         $scope.page = response.page;
         $scope.totalPages = response.total_pages;

@@ -1,6 +1,6 @@
 <div class="loader" data-ng-if = loaded></div>
 <div data-ng-if = !loaded>
-<section  class = "backgroundImage" data-ng-style="{'background-image':'url({{details.backdrop_path}})',
+<section class = "detailsPageBackgroundImage" data-ng-style="{'background-image':'url({{details.backdrop_path}})',
     'background-repeat': 'no-repeat', 'background-size': 'cover', 'left' : '0'}">
 <div class style="width : 1008px; margin: auto;z-index: 999;position: relative;">
 <div id="details">
@@ -11,8 +11,23 @@
     <h1>{{details.name}}</h1>
     <p><span data-ng-repeat= "genre in details.genres">{{genre.name}}{{$last ? "" :", "}}</span></p>
     <p>{{details.overview}}</p>
+    <h1>Featured Crew (dominantColor)</h1>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
     </div>
+
     </div>
+    <h1>Main Cast</h1>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
     <div class = "videos" >
     <p>Available videos</p>
     <div class = "videoTile" data-ng-repeat = "video in details.videos">
@@ -28,7 +43,8 @@
 
 </div>
 </div>
+<p>Some Other content here<p>
 </section>
 <section style="z-index:19999">
-  <p>Some Other content here<p></section>
+  </section>
 </div>

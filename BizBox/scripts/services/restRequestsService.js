@@ -43,11 +43,11 @@ function dataService($http, $log,API_KEY, BASE_URL) {
 
     }
     function get(id) {
-        return makeRequest('tv/' + id, {'append_to_response' : 'videos'});
+        return makeRequest('tv/' + id, {'append_to_response' : 'videos,credits'});
     }
 
     function getMovieDetails(id) {
-        return makeRequest('movie/' + id, {'append_to_response' : 'videos'});
+        return makeRequest('movie/' + id, {'append_to_response' : 'videos,credits'});
     }
     function getCast(id) {
         return makeRequest('tv/' + id + '/credits', {});
@@ -57,15 +57,15 @@ function dataService($http, $log,API_KEY, BASE_URL) {
             return data.results;
         });
     }
-    function getPopular() {
-        return makeRequest('tv/popular', {}).then(function(data){
-            return data.results;
+    function getPopular(page) {
+        return makeRequest('tv/popular', {page: page}).then(function(data){
+            return data;
         });
     }
 
-    function getPopularMovies() {
-        return makeRequest('movie/popular', {}).then(function(data){
-            return data.results;
+    function getPopularMovies(page) {
+        return makeRequest('movie/popular', {page: page}).then(function(data){
+            return data;
         });
     }
     return data;

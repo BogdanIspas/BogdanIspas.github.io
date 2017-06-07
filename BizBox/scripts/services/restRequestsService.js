@@ -15,8 +15,7 @@ function dataService($http, $log,API_KEY, BASE_URL) {
         'search': search,
         'getPopular': getPopular,
         'getCast': getCast,
-        'getPopularMovies' : getPopularMovies,
-        'getMovieDetails' : getMovieDetails
+        'getPopularMovies' : getPopularMovies
     };
 
     function makeRequest(url, params) {
@@ -42,13 +41,15 @@ function dataService($http, $log,API_KEY, BASE_URL) {
         return "not implemmented"
 
     }
-    function get(id) {
-        return makeRequest('tv/' + id, {'append_to_response' : 'videos,credits'});
+    function get(id, mediaType) {
+        if (mediaType === "series") {
+            return makeRequest('tv/' + id, {'append_to_response' : 'videos,credits'});
+        }
+        else {
+            return makeRequest('movie/' + id, {'append_to_response' : 'videos,credits'});
+        }
     }
 
-    function getMovieDetails(id) {
-        return makeRequest('movie/' + id, {'append_to_response' : 'videos,credits'});
-    }
     function getCast(id) {
         return makeRequest('tv/' + id + '/credits', {});
     }

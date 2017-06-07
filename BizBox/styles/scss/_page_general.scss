@@ -1,0 +1,25 @@
+//Colors
+$main-background: #081c24;
+$main-font-color: white;
+$link-color: white;
+$span-fontsize : 1.2em;
+$header-background: #081c24;
+$detail-page-background:  #742828;
+$shadow: rgba(0,0,0,0.2);
+$spinner-background:  #f3f3f3;
+$spinner-overlay-color:  #3498db;
+
+
+
+//Dimensions
+$spinner-width: 120px;
+$spinner-height: 120px;
+
+//font sizes
+$heading-fontsize: 18px;
+
+html {
+    min-width: 1008px;
+    font-family: "Proxima Nova";
+    color: $main-font-color;
+}

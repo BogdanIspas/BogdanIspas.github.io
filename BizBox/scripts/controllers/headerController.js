@@ -1,10 +1,3 @@
 angular.module ('BizBoxApp').
-   controller ('headerController', ['restRequestsService'], function (restRequestsService){
-
-
-    $scope.clickSearchIcon () {
-      clicked = true;
-
-    }
-
-   });
+controller ('headerController', ['restRequestsService', function (restRequestsService){
+}]);

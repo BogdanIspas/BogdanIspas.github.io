@@ -23,6 +23,13 @@ angular.module('BizBoxApp').config (['$routeProvider', '$locationProvider', '$sc
       templateUrl : "./templates/detailsPage.html",
       controller : "detailsPageController"
     }).
+   when ("/about", {
+       templateUrl:'./templates/about.html',
+       controller : "aboutPageController"}).
+   when ("/login", {
+       templateUrl:'./templates/login.html',
+       controller : "loginPageController"}).   
+
     otherwise ({
         redirectTo:"/landingPage"
       });
